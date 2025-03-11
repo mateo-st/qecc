@@ -10,6 +10,7 @@ This Python library provides tools for encoding, decoding, correcting, measuring
 - *Error Simulation* — Apply arbitrary unitary errors for benchmarking code performance.
 
 ## Repo Structure
+```
 qecc/
 │── library/        # Core implementation of QECC classes and tools
 │    ├── encoded_circuit.py  # Abstract base class
@@ -21,6 +22,7 @@ qecc/
 │── experiments/    # Scripts and notebooks for testing QECCs
 │── README.md       # Project documentation
 │── requirements.txt # Required dependencies
+```
 
 ## Installation
 
