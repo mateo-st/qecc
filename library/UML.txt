@@ -1,0 +1,51 @@
+-   EncodedCircuit: abstract class that defines key fields and methods that need to be declared for each code. 
+    Subclasses of this abstract class (which are the circuits with codes) have the particular implementation of the abstract fields
+    and methods.
+    -   Fields:
+        - logical_qubit_count
+        - physical_qubit_count
+        - logical_qubit_register
+        - logical_bit_register
+        - logical_quantum_circuit
+        - physical_qubit_register
+        - physical_bit_register
+        - physical_quantum_circuit
+    -   Abstract Methods:
+        - encode(): initializes the circuit with an encoded state.
+        - get_physical_qubits_from_logical(logical_qubit: int): maps a logical qubit to its corresponding physical qubits.
+        - x(logical_qubits: list | int): applies Pauli X-gate to certain logical qubits in both logical and physical circuits.
+        - y(logical_qubits: list | int): applies Pauli Y-gate to certain logical qubits in both logical and physical circuits.
+        - z(logical_qubits: list | int): applies Pauli Z-gate to certain logical qubits in both logical and physical circuits.
+        - h(logical_qubits: list | int): applies Hadamard gate to certain logical qubits in both logical and physical circuits.
+        - cx(logical_qubits: list | int): applies CNOT gate to a certain logical target qubit from a certain logical control qubit
+                                          in both logical and physical circuits.
+        - measure_all(): measures the states of qubits of interest in both logical and physical circuits.
+        - correct(): applies quantum error correction to a certain operation.
+    -   General Methods:
+        - barrier(args): applies barrier to separate operations.
+        - draw_logical_circuit(output_format): displays logical quantum circuit.
+        - draw_physical_circuit(output_format): displays physical quantum circuit.
+
+-   ShorCodeCircuit: subclass of EncodedCircuit that implements the encoding and operations specific to Shor's code.
+    -   Fields:
+        - (inherits all fields from EncodedCircuit)
+    -   Methods:
+        - __init__(logical_qubit_count: int, physical_qubits_per_logical: int): initializes logical and physical qubits and circuits.
+                                                                                Enables instantation, object creation.
+        - (inherits all methods from EncodedCircuit, abstract methods are specified for this particular Code)
+
+-   SteaneCodeCircuit: subclass of EncodedCircuit that implements the encoding and operations specific to Steane code.
+    -   Fields:
+        - physical_ancilla_qubit_register: QuantumRegister used for performing error correction.
+        - physical_measurement_qubit_register: QuantumRegister used for measure the physical qubits.
+        - encode_applied: Indicates whether the encoding step has been applied.
+        - (inherits all fields from EncodedCircuit)
+    -   Methods:
+        - __init__(logical_qubit_count: int, physical_qubits_per_logical: int): initializes logical and physical qubits and circuits.
+                                                                                Enables instantation, object creation.
+        - endoce(re_encode = False): Encodes each logical qubit using the Steane code. Only re-encode is re_encode is set to True.
+        - append(U, logical_qubits: list | int): Appends a quantum gate to the logical and physical circuits unless encoding has been applied.
+        - append_unitary_error(E, physical_qubits: list | int): Appends an error gate to the specified physical qubits in the physical circuit.
+        - (inherits all methods from EncodedCircuit, abstract methods are specified for this particular Code)
+
+        

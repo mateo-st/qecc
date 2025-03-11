@@ -29,7 +29,7 @@ qecc/
 To install the library, clone the repository and install dependencies:
 ```
 git clone https://github.com/mateo-st/qecc.git
-qecc/library
+cd qecc
 pip install -r requirements.txt
 ```
 
