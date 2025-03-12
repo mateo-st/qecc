@@ -19,7 +19,9 @@ qecc/
 │    ├── five_qubit_code.py  # Five-Qubit Code implementation
 │    ├── __init__.py         # Library module initialization
 │
-│── experiments/    # Scripts and notebooks for testing QECCs
+│── experiments/    # Scripts and notebooks for testing QECCs on current hardware
+│── octave_qecc/    # Numerical implementation of QECCs, logical gates and noise modelling
+│── functions/    # Utilities for simulating, plotting and presenting results
 │── README.md       # Project documentation
 │── requirements.txt # Required dependencies
 ```
